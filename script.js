@@ -63,7 +63,7 @@ let generateChart=()=>{
                     grid:{
                         display:false, 
                         drawBorder:false,
-                        
+                        drawOnChartArea:false,
                     }
                 }
             },
