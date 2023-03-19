@@ -5,6 +5,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    font-family: DM Sans;
+}
 .content-container{
     display: flex;
     flex-direction: column;
@@ -14,7 +17,7 @@
     min-height: 100vh;
 }
 .balance-container{
-    width: 20rem;
+    width: 21rem;
     border-radius: 15px;
     background-color:hsl(10, 79%, 65%);
     display: flex;
@@ -52,17 +55,66 @@
 .graph-container-back{
     margin-top: 1rem;
     border-radius: 15px;
-    width: 20rem;
-    background-color: white;
+    width: 21rem;
+    background-color:  hsl(33, 100%, 98%);
 }
 .graph-container{
-    
+
     padding: 1rem;
 }
-.graph-container h2{
+.graph-container h2#title{
     font-family: DM Sans;
     font-weight: 700;
     font-size: 1.4rem;
     padding-left: .4rem;
     margin:1rem 0 2rem 0;
+   
 }
+hr {
+    height:2px;
+    border: none;
+    background-color: hsla(27, 66%, 92%);
+    margin-top: 1.5rem;
+  }
+.bottom-stats{
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0 1rem 0;
+}
+.history{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    text-align: right;
+}
+.history span#percentage{
+    font-weight: 700;
+}
+.totals span#Tot-title{
+    color:rgba(0, 0, 0, 0.5);
+}
+.totals h2{
+    margin-top: .5rem;
+    font-size: 2rem;
+}
+.history span#desc{
+    color:rgba(0, 0, 0, 0.5);
+}
+@media screen and (min-width: 1200px) {
+    .balance-container{
+        width: 25rem;
+       
+    }
+    .graph-container-back{
+        
+        width: 25rem;
+       
+    }
+    .chart-container{
+       display: flex;
+    }
+    .bar-chart{
+        height: 100%;
+        width: 100%;
+    }
+  }

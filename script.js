@@ -1,7 +1,10 @@
 var canvasElement = document.querySelector(".bar-chart")
+var total_text =document.querySelector(".total-text")
+
 var days=[]
 var amounts=[]
 var colors=["hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(186, 34%, 60%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)"]
+var hover_colors=[" hsl(10, 93%, 82%)"," hsl(10, 93%, 82%)","hsl(186, 65%, 82%)"," hsl(10, 93%, 82%)"," hsl(10, 93%, 82%)"," hsl(10, 93%, 82%)"," hsl(10, 93%, 82%)"]
 
 async function GetData(){
     const response = await fetch("data.json")
@@ -14,7 +17,18 @@ async function GetData(){
         
     }
     generateChart();
+    addTotal()
 }
+
+addTotal=()=>{
+    var total = 0;
+    for(var i =0;i<7;i++){      
+        total+=amounts[i]
+    }
+    total_text.textContent=total;
+}
+
+// create the chart
 generateChart=()=>{
     var config ={
         type:"bar",
@@ -26,6 +40,7 @@ generateChart=()=>{
                     data:amounts,
                     backgroundColor:colors,
                     borderRadius:2,
+                   hoverBackgroundColor:hover_colors,
                 }],
         
         },
@@ -33,15 +48,13 @@ generateChart=()=>{
             responsive: true,
             scales:{
                 y:{
-                    ticks:{
-                        display:false
-                    },
-                   grid:{
+                   display:false,
+                  /* grid:{
                     display:false,
                     drawBorder:false,
                     drawOnChartArea:false,
                     drawTicks:false,
-                   }  
+                   }  */
                 },
                 x:{
                     grid:{
@@ -58,8 +71,14 @@ generateChart=()=>{
                 tooltip:{
                     yAlign:"bottom",
                     displayColors:false,
-                }
+                  
+                },
             },
+            
+            interaction :{
+                
+            }
+
         }
        
     };
