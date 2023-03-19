@@ -6,6 +6,8 @@ var amounts=[]
 var colors=["hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(186, 34%, 60%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)","hsl(10, 79%, 65%)"]
 var hover_colors=[" hsl(10, 93%, 82%)"," hsl(10, 93%, 82%)","hsl(186, 65%, 82%)"," hsl(10, 93%, 82%)"," hsl(10, 93%, 82%)"," hsl(10, 93%, 82%)"," hsl(10, 93%, 82%)"]
 
+
+//get data from json and plot the chart and also diplay total
 async function GetData(){
     const response = await fetch("data.json")
     const data = await response.json();   
@@ -20,6 +22,7 @@ async function GetData(){
     addTotal()
 }
 
+//get the total from the values taken from json
 addTotal=()=>{
     var total = 0;
     for(var i =0;i<7;i++){      
@@ -29,7 +32,7 @@ addTotal=()=>{
 }
 
 // create the chart
-generateChart=()=>{
+let generateChart=()=>{
     var config ={
         type:"bar",
         data:{
